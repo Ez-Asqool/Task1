@@ -1,0 +1,47 @@
+﻿@model Task1.ViewModel.User.CreateUserVM
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div>@if (ViewBag.ErrMsg != null)
+        {
+            <h3 class="text text-danger" >@ViewBag.ErrMsg</h3>
+        }
+        
+    </div>
+
+<form method="post"  asp-controller="User" asp-action="Create">
+  
+    <div>
+        <label asp-for="StudentName"></label> 
+        <input type="text" asp-for="StudentName" class="form-control" />
+        <span asp-validation-for="StudentName" class="text-danger"></span>
+    </div>
+
+    <br><br>
+
+    <div>
+        <label asp-for="Password"></label> 
+        <input type="text" asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <br><br>
+
+     <div>
+        <label asp-for="state"></label>
+        <select asp-for="state">
+            <option value="0" class="text text-danger">Blocked</option>
+            <option value="1" class="text text-success">Active</option>
+        </select>
+
+        <span asp-validation-for="state" class="text-danger"></span>
+    </div>
+
+    <br><br>
+    <input type="submit" value="Create" />
+
+</form>

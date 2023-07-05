@@ -1,0 +1,55 @@
+﻿@model List<Task1.Models.Student>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div>
+    <a asp-controller="Student" asp-action="Create">Create New Student</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>IdNumber</th>
+            <th>Full Name</th>
+            <th>Gender</th>
+            <th>Photograph</th>
+            <th>Id Photo</th>
+            <th>Address</th>
+            <th>Mobile Number</th>
+            <th>Date Of Birth</th>
+            <th>Date Of Enrollment School</th>
+            <th>Level</th>
+            <th>Evaluate Last Year</th>
+            <th>Time Of Registration On System</th>
+            <th>Actions</th>
+
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdNumber</td>
+                <td>@item.FirstName @item.FatherName @item.GrandFatherName @item.LastName</td>
+                <td>@item.Gender</td>
+                <td><img src="~/ImagesApp/@item.Photograph"  asp-append-version="true" style="width:20px; height:20px;"></td>
+                <td><img src="~/ImagesApp/@item.IdPhoto"  asp-append-version="true" style="width:20px; height:20px;"></td>
+                <td>@item.Address</td>
+                <td>@item.MobileNumber</td>
+                <td>@item.DateOfBirth.ToString("dd/mm/yyy")</td>
+                <td>@item.DateOfEnrollmentSchool.ToString("dd/mm/yyy")</td>
+                <td>@item.Level</td>
+                <td>@item.EvaluateLastYear</td>
+                <td>@item.TimeOfRegistrationOnSystem.ToString("hh:mm:ss")</td>
+                <td>                   <!--you can use Title:  asp-route-Title="" -->                 
+                    <a asp-action="Update" asp-controller="Student" asp-route-id="@item.Id">Update</a>
+                    <a asp-action="Delete" asp-controller="Student" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Get" asp-controller="Student" asp-route-id="@item.Id">Get</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,139 @@
+﻿@model Task1.ViewModel.Student.UpdateStudentVM
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div>@if (ViewBag.ErrorMsg != null)
+        {
+            <h2 class="text text-danger" >@ViewBag.ErrorMsg</h2>
+        }
+        
+    </div>
+
+<form method="post" enctype="multipart/form-data" asp-controller="Student" asp-action="Update">
+    <input type="text" asp-for="IdPhotoName" value="@Model.IdPhotoName" hidden>
+    <input type="text" asp-for="PhotographName" value="@Model.PhotographName" hidden>
+
+    <div>
+        <label asp-for="IdNumber"></label>
+        <input type="text" asp-for="IdNumber" class="form-control" />
+        <span asp-validation-for="IdNumber" class="text-danger"></span>
+    </div>
+
+    <br><br />
+
+    <div>
+        <label asp-for="FirstName"></label>
+        <input type="text" asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <br><br>
+
+    <div>
+        <label asp-for="FatherName"></label>
+        <input type="text" asp-for="FatherName" class="form-control" />
+        <span asp-validation-for="FatherName" class="text-danger"></span>
+    </div>
+
+    <br><br>
+    <div>
+        <label asp-for="GrandFatherName"></label>
+        <input type="text" asp-for="GrandFatherName" class="form-control" />
+        <span asp-validation-for="GrandFatherName" class="text-danger"></span>
+    </div>
+
+    <br><br>
+    <div>
+        <label asp-for="LastName"></label>
+        <input type="text" asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <br><br>
+
+    <div>
+        <label asp-for="Gender"></label>
+        <select asp-for="Gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+    </div>
+
+    <br><br>
+
+    <div>
+        <label asp-for="PhotographImage"></label>
+        <img src="~/ImagesApp/@Model.PhotographName" style="max-width:200px;" class="img-thumbnail" />
+        <input type="file" asp-for="PhotographImage" class="form-control"/>
+    </div>
+
+    <br><br>
+
+    <div>
+        <label asp-for="IdPhotoImage"></label>
+        <img src="~/ImagesApp/@Model.IdPhotoName" style="max-width:200px;" class="img-thumbnail" />
+        <input type="file" asp-for="IdPhotoImage" class="form-control" />
+    </div>
+
+    <br><br>
+
+    <div>
+        <label asp-for="Address"></label> 
+        <input type="text" asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <br><br>
+
+    <div>
+        <label asp-for="MobileNumber"></label>
+        <input type="text" asp-for="MobileNumber" class="form-control" />
+        <span asp-validation-for="MobileNumber" class="text-danger"></span>
+    </div>
+
+    <br><br>
+
+
+    <div>
+        <label asp-for="DateOfBirth"></label>
+        <input type="date" asp-for="DateOfBirth" class="form-control" />
+        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+    </div>
+
+    <br><br>
+
+    <div>
+        <label asp-for="DateOfEnrollmentSchool"></label>
+        <input type="date" asp-for="DateOfEnrollmentSchool" class="form-control" />
+        <span asp-validation-for="DateOfEnrollmentSchool" class="text-danger"></span>
+    </div>
+
+    <br><br>
+
+    <div>
+        <label asp-for="Level"></label>
+        <select asp-for="Level">
+            <option value="First Level">First Level</option>
+            <option value="Second Level">Second Level</option>
+            <option value="Third Level">Third Level</option>
+            <option value="Forth Level">Forth Level</option>
+        </select>
+        <span asp-validation-for="Level" class="text-danger"></span>
+    </div>
+
+    <br><br>
+
+    <div>
+        <label asp-for="EvaluateLastYear"></label>
+        <input type="number" min="0.0" max="100.0" asp-for="EvaluateLastYear" class="form-control" />
+        <span asp-validation-for="EvaluateLastYear" class="text-danger"></span>
+    </div>
+
+    <br><br>
+
+
+    <input type="submit" value="Update" />
+</form>

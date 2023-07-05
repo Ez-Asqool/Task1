@@ -1,0 +1,28 @@
+﻿@model Task1.Models.Student
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1 class="text text-decoration-underline">Student Full Informations:</h1>
+
+<div>
+    <ul>
+        <li>Student Id: @Model.Id</li><br />
+        <li>IdNumber : @Model.IdNumber</li>
+        <li>Full Name: @Model.FirstName @Model.FatherName @Model.GrandFatherName @Model.LastName</li><br />
+        <li>Gender: @Model.Gender</li><br />
+        <li>Photograph Image: <img src="~/ImagesApp/@Model.Photograph" style="max-width:200px;" class="img-thumbnail" /></li><br />
+        <li>Id Photo Image: <img src="~/ImagesApp/@Model.IdPhoto" style="max-width:200px;" class="img-thumbnail" /></li><br />
+        <li>Address: @Model.Address</li><br />
+        <li>Mobile Number: @Model.MobileNumber</li><br />
+        <li>Date Of Birth: @Model.DateOfBirth.ToString("dd/mm/yyy")</li><br />
+        <li>Date Of Enrollment School: @Model.DateOfEnrollmentSchool.ToString("dd/mm/yyy")</li><br />
+        <li>Level: @Model.Level</li><br />
+        <li>Evaluate Last Year: @Model.EvaluateLastYear</li><br />
+        <li>Time Of Registration On System : @Model.TimeOfRegistrationOnSystem</li><br />
+    </ul>
+</div>
+
+

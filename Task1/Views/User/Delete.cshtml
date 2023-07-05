@@ -1,0 +1,42 @@
+﻿@model Task1.Models.User
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1 class="text text-decoration-underline text text-danger" >Are You Shure That You Want To Delete This User(Student) ?</h1> <br />
+
+<div>
+    <ul>
+        <li>User Id: @Model.Id</li><br />
+        @if(@Model.state.ToString() == "0"){
+            <li>User State: <span class="text text-danger ">Blocked</span></li><br />
+        }else{
+            <li>User State: <span class="text text-success ">Active</span></li><br />
+        }
+
+        <li>Student Id: @Model.Student.Id</li><br />
+        <li>IdNumber : @Model.Student.IdNumber</li><br />
+        <li>Full Name: @Model.Student.FirstName @Model.Student.FatherName @Model.Student.GrandFatherName @Model.Student.LastName</li><br />
+        <li>Gender: @Model.Student.Gender</li><br />
+        <li>Photograph Image: <img src="~/ImagesApp/@Model.Student.Photograph" style="max-width:200px;" class="img-thumbnail" /></li><br />
+        <li>Id Photo Image: <img src="~/ImagesApp/@Model.Student.IdPhoto" style="max-width:200px;" class="img-thumbnail" /></li><br />
+        <li>Address: @Model.Student.Address</li><br />
+        <li>Mobile Number: @Model.Student.MobileNumber</li><br />
+        <li>Date Of Birth: @Model.Student.DateOfBirth.ToString("dd/mm/yyy")</li><br />
+        <li>Date Of Enrollment School: @Model.Student.DateOfEnrollmentSchool.ToString("dd/mm/yyy")</li><br />
+        <li>Level: @Model.Student.Level</li><br />
+        <li>Evaluate Last Year: @Model.Student.EvaluateLastYear</li><br />
+        <li>Time Of Registration Student On System : @Model.Student.TimeOfRegistrationOnSystem.ToString("hh:mm:ss tt")</li><br />
+        <li>Time Of Registration User On System : @Model.TimeOfRegistrationOnSystem.ToString("hh:mm:ss tt")</li><br />
+    </ul>
+</div>
+<br />
+
+<div>
+   <form method="post" asp-controller="User" asp-action="Delete">
+       <input type="submit" value="Delete" class="text text-danger"/>
+   </form>
+
+</div>

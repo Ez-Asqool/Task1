@@ -1,0 +1,67 @@
+﻿@model List<Task1.Models.User>
+
+<div>
+    <a asp-controller="User" asp-action="Create">Create New User</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>IdNumber</th>
+            <th>Full Name</th>
+            <th>Gender</th>
+            <th>Photograph</th>
+            <th>Id Photo</th>
+            <th>Address</th>
+            <th>Mobile Number</th>
+            <th>Date Of Birth</th>
+            <th>Date Of Enrollment School</th>
+            <th>Level</th>
+            <th>Evaluate Last Year</th>
+            <th>Time Of Registration Student On System</th>
+            <th>Time Of Registration User On System</th>
+            <th>User State</th>
+
+            <th>Actions</th>
+
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Student.IdNumber</td>
+                <td>@item.Student.FirstName @item.Student.FatherName @item.Student.GrandFatherName @item.Student.LastName</td>
+                <td>@item.Student.Gender</td>
+                <td><img src="~/ImagesApp/@item.Student.Photograph"  asp-append-version="true" style="width:20px; height:20px;"></td>
+                <td><img src="~/ImagesApp/@item.Student.IdPhoto"  asp-append-version="true" style="width:20px; height:20px;"></td>
+                <td>@item.Student.Address</td>
+                <td>@item.Student.MobileNumber</td>
+                <td>@item.Student.DateOfBirth.ToString("dd/mm/yyy")</td>
+                <td>@item.Student.DateOfEnrollmentSchool.ToString("dd/mm/yyy")</td>
+                <td>@item.Student.Level</td>
+                <td>@item.Student.EvaluateLastYear</td>
+                <td>@item.Student.TimeOfRegistrationOnSystem.ToString("hh:mm:ss")</td>
+                <td>@item.TimeOfRegistrationOnSystem.ToString("hh:mm:ss")</td>
+                <td>
+                @if(@item.state.ToString() == "0"){
+                    <a asp-action="Update" asp-controller="User" asp-route-id="@item.Id" class="text text-danger " >
+                         Blocked
+                    </a>
+                }else{
+                    <a asp-action="Update" asp-controller="User" asp-route-id="@item.Id" class="text text-success">
+                        Active
+                    </a>
+                    
+                }
+                </td>
+                <td>                   <!--you can use Title:  asp-route-Title="" -->                 
+                    
+                    <a asp-action="Delete" asp-controller="User" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Get" asp-controller="User" asp-route-id="@item.Id">Get</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
